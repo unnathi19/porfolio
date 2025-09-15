@@ -2,7 +2,7 @@ import React from "react";
 import homeImage from "../assets/main.jpg";
 import resume from "../assets/UnnathiHM.pdf";
 import { TypeAnimation } from "react-type-animation";
-import SocialIcons from "./Socialicons";
+import SocialIcons from "./icons";
 import Layout from "./Layout";
 
 import Button from "./Button";
