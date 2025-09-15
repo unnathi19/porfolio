@@ -13,21 +13,22 @@ const Home = () => {
     <section className="w-full h-screen overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       <div className="flex flex-col md:flex-row items-center justify-center h-full w-full">
 
-        {/* Left: Image with animations */}
-        <div className="w-full md:w-1/2 flex justify-center items-center relative">
-          <div className="relative group">
-            {/* Animated Gradient Border */}
-            <div className="absolute inset-0 rounded-full p-[4px] bg-gradient-to-tr from-black-500 via-red-500 to-green-500 animate-spin-slow"></div>
+       {/* Left: Image with animations */}
+<div className="w-full md:w-1/2 flex justify-center items-center relative mt-6 md:mt-0">
+  <div className="relative group">
+    {/* Animated Gradient Border */}
+    <div className="absolute inset-0 rounded-full p-[4px] bg-gradient-to-tr from-black-500 via-red-500 to-green-500 animate-spin-slow"></div>
 
-            {/* Image */}
-            <img
-              src={homeImage}
-              alt="Unnathi"
-              className="relative rounded-full w-48 sm:w-64 md:w-80 lg:w-[320px] xl:w-[350px] shadow-lg 
-                group-hover:scale-110 transition duration-500 ease-in-out animate-float"
-            />
-          </div>
-        </div>
+    {/* Image */}
+    <img
+      src={homeImage}
+      alt="Unnathi"
+      className="relative rounded-full w-48 sm:w-64 md:w-80 lg:w-[320px] xl:w-[350px] shadow-lg 
+        group-hover:scale-110 transition duration-500 ease-in-out animate-float"
+    />
+  </div>
+</div>
+
 
 {/* Right: Content */}
 <div className="w-full md:w-1/2 flex flex-col items-center md:items-start mt-6 md:mt-0 justify-center px-4">
