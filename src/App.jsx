@@ -26,14 +26,14 @@
 import React from "react";
 import Home from "./components/Home";
 import About from "./components/About";
-import Header from "./components/header";
 import Project from "./components/Project";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
+import Header from "./components/header";
 function App() {
   return (
     <div className="text-black bg-black scroll-smooth">
-      <Header />
+      <Header/>
       <main>
         <section id="home">
           <Home />
