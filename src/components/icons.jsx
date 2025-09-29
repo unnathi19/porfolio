@@ -5,12 +5,12 @@ const icons = [
   { href:"https://www.linkedin.com/in/unnathi-hm-407144205/?trk=opento_sprofile_topcard",
     components:<FaLinkedin className="text-2xl text-black-600 hover:text-black-800 transition-colors duration-300" />
   },
-  { href:"#",
+  { href:"https://github.com/unnathi19",
     components:<FaGithub className="text-2xl text-black-600 hover:text-black-800 transition-colors duration-300" />
   },
-  { href:"#",
-    components:<FaInstagram className="text-2xl text-black-600 hover:black-blue-800 transition-colors duration-300" />
-  },
+  // { href:"#",
+  //   components:<FaInstagram className="text-2xl text-black-600 hover:black-blue-800 transition-colors duration-300" />
+  // },
 ]
 const SocialIcons=()=>{
     return(

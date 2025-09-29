@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+
 
 const experienceData = [
   {
@@ -24,6 +26,7 @@ const experienceData = [
 export default function Experience() {
   const cardRefs = useRef([]);
   const [visibleCards, setVisibleCards] = useState([]);
+  const [showScrollUp, setShowScrollUp] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,6 +48,24 @@ export default function Experience() {
     };
   }, []);
 
+  // Scroll-Up Button Logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollUp(true);
+      } else {
+        setShowScrollUp(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen bg-gray-900 text-white py-16 px-6 overflow-hidden">
       {/* === Full Screen Horizontal Matrix Background === */}
@@ -56,10 +77,7 @@ export default function Experience() {
               className="flex space-x-1 whitespace-nowrap animate-matrix-horizontal"
             >
               {Array.from({ length: 100 }).map((_, col) => (
-                <span
-                  key={col}
-                  className="text-green-500 font-mono text-xs"
-                >
+                <span key={col} className="text-green-500 font-mono text-xs">
                   {Math.random() > 0.5 ? "1" : "0"}
                 </span>
               ))}
@@ -120,6 +138,18 @@ export default function Experience() {
           })}
         </div>
       </div>
+
+      {/* Scroll-Up Button */}
+     {showScrollUp && (
+  <button
+    onClick={scrollToTop}
+    className="fixed bottom-8 right-8 bg-green-500 text-black p-4 rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center z-50"
+    title="Go to top"
+  >
+<ArrowUpwardIcon fontSize="small" />
+
+  </button>
+)}
 
       <style>
         {`

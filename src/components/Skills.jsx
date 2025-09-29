@@ -1,95 +1,47 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const skills = [
-  { name: "React", level: "Advanced", tools: ["Redux", "Router", "Tailwind"] },
-  { name: "Node.js", level: "Advanced", tools: ["Express", "Socket.IO", "JWT"] },
-  { name: "MySQL", level: "Intermediate", tools: ["Sequelize", "Queries", "Optimization"] },
-  { name: "MongoDB", level: "Intermediate", tools: ["Mongoose", "Aggregation", "Indexes"] },
-  { name: "JavaScript", level: "Advanced", tools: ["ES6+", "Async/Await", "DOM Manipulation"] },
-  { name: "Docker", level: "Beginner", tools: ["Containers", "Docker Compose"] },
-  { name: "Git", level: "Advanced", tools: ["GitHub", "Branching", "Merging"] },
-  { name: "REST API", level: "Advanced", tools: ["Express", "Postman", "JWT"] },
+  { name: "React", level: "Advanced", tools: ["Redux", "Router", "Tailwind"], color: "from-blue-400 to-blue-600", icon: "⚛️" },
+  { name: "Node.js", level: "Advanced", tools: ["Express", "Socket.IO", "JWT"], color: "from-green-400 to-green-600", icon: "🟢" },
+  { name: "MySQL", level: "Intermediate", tools: ["Sequelize", "Queries", "Optimization"], color: "from-indigo-400 to-indigo-600", icon: "🗄️" },
+  { name: "MongoDB", level: "Intermediate", tools: ["Mongoose", "Aggregation", "Indexes"], color: "from-green-300 to-green-500", icon: "🍃" },
+  { name: "JavaScript", level: "Advanced", tools: ["ES6+", "Async/Await", "DOM Manipulation"], color: "from-yellow-400 to-yellow-500", icon: "📜" },
+  { name: "Docker", level: "Beginner", tools: ["Containers", "Docker Compose"], color: "from-blue-300 to-blue-500", icon: "🐳" },
+  { name: "Git", level: "Advanced", tools: ["GitHub", "Branching", "Merging"], color: "from-red-400 to-red-600", icon: "🔧" },
+  { name: "REST API", level: "Advanced", tools: ["Express", "Postman", "JWT"], color: "from-purple-400 to-purple-600", icon: "🌐" },
 ];
 
 export default function Skills() {
-  const containerRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [flippedIndex, setFlippedIndex] = useState(null);
-
-  // Adjust speed based on screen size
-  const speed = window.innerWidth < 768 ? 0.004 : 0.01; 
-  const radiusX = 300; 
-  const radiusZ = 200;
-
-  useEffect(() => {
-    let angle = 0;
-    const container = containerRef.current;
-    if (!container) return;
-
-    const animate = () => {
-      if (!isPaused && flippedIndex === null) {
-        angle += speed;
-        const children = container.children;
-        const total = children.length;
-
-        for (let i = 0; i < total; i++) {
-          const theta = (i / total) * Math.PI * 2 + angle;
-          const x = radiusX * Math.cos(theta);
-          const z = radiusZ * Math.sin(theta);
-          const scale = 0.5 + 0.5 * (1 - Math.sin(theta));
-          children[i].style.transform = `translateX(${x}px) translateZ(${z}px) scale(${scale})`;
-          children[i].style.zIndex = `${Math.floor(scale * 100)}`;
-        }
-      }
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-  }, [isPaused, flippedIndex, speed]);
-
-  const handleFlip = (index) => {
-    if (flippedIndex === index) {
-      setFlippedIndex(null);
-      setIsPaused(false);
-    } else {
-      setFlippedIndex(index);
-      setIsPaused(true);
-    }
-  };
+  const [flipped, setFlipped] = useState(null);
 
   return (
-    <section className="relative min-h-screen bg-gray-900 text-white py-12 px-6 overflow-hidden perspective-1000">
-      <h2 className="text-4xl font-bold mb-12 text-white relative z-10 text-center">
-        My Skills
-      </h2>
+    <section className="min-h-screen bg-gray-900 text-white py-12 px-6">
+      <h2 className="text-4xl font-bold text-center mb-10">💡 My Skills</h2>
 
-      <div
-        ref={containerRef}
-        className="relative w-full h-[400px] flex items-center justify-center z-10"
-      >
-        {skills.map((skill, i) => {
-          const isFlipped = flippedIndex === i;
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {skills.map((skill, index) => {
+          const isFlipped = flipped === index;
           return (
             <div
-              key={i}
-              className="absolute w-32 h-40 perspective cursor-pointer"
-              onClick={() => handleFlip(i)}
-              onMouseEnter={() => window.innerWidth >= 768 && setIsPaused(true)}
-              onMouseLeave={() => window.innerWidth >= 768 && !isFlipped && setIsPaused(false)}
+              key={index}
+              className="relative w-full h-52 cursor-pointer perspective transform transition-transform duration-300 hover:scale-105"
+              onClick={() => setFlipped(isFlipped ? null : index)}
             >
               <div
-                className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
-                  isFlipped ? "rotate-y-180" : ""
-                }`}
+                className={`relative w-full h-full duration-700 transform-style preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}
               >
                 {/* Front */}
-                <div className="absolute w-full h-full bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl shadow-xl flex items-center justify-center font-bold text-lg backface-hidden">
-                  {skill.name}
+                <div className={`absolute w-full h-full rounded-lg shadow-lg flex flex-col items-center justify-center p-4 bg-gradient-to-br ${skill.color} backface-hidden`}>
+                  <div className="text-4xl mb-2">{skill.icon}</div>
+                  <h3 className="text-xl font-bold">{skill.name}</h3>
+                  <p className="mt-1 text-xs">Click to view</p>
                 </div>
+
                 {/* Back */}
-                <div className="absolute w-full h-full bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-2xl shadow-xl flex flex-col items-center justify-center font-semibold text-sm backface-hidden rotate-y-180 p-3">
-                  <p className="mb-1">Proficiency: {skill.level}</p>
-                  <p className="text-xs text-gray-100 text-center">
+                <div className={`absolute w-full h-full rounded-lg shadow-lg flex flex-col items-center justify-center p-4 bg-gray-800 backface-hidden rotate-y-180 border border-white/20`}>
+                  <h3 className="text-lg font-bold mb-1">{skill.name}</h3>
+                  <p className="mb-1 text-sm">Proficiency: <span className="font-semibold">{skill.level}</span></p>
+                  <p className="text-xs text-gray-300 text-center">
                     Tools: {skill.tools.join(", ")}
                   </p>
                 </div>
@@ -103,7 +55,7 @@ export default function Skills() {
         .perspective { perspective: 1000px; }
         .backface-hidden { backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
-        .transform-style-preserve-3d { transform-style: preserve-3d; }
+        .transform-style { transform-style: preserve-3d; }
       `}</style>
     </section>
   );
