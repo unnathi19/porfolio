@@ -58,7 +58,26 @@ const Home = () => {
               <span className="text-blue-400 font-semibold"> VS Code</span>. Strong understanding 
               of asynchronous programming and backend architecture patterns!
             </p>
-
+            <div className="mt-3 space-y-2 text-gray-300 text-sm sm:text-base">
+  <p>
+    📧 Email:{" "}
+    <a
+      href="mailto:unnathimaruthi55@gmail.com"
+      className="text-red-400 hover:underline"
+    >
+      unnathimaruthi55@gmail.com
+    </a>
+  </p>
+  <p>
+    📱 Phone:{" "}
+    <a
+      href="tel:+919876543210"
+      className="text-red-400 hover:underline"
+    >
+      +91 7676727948
+    </a>
+  </p>
+</div>
             {/* Button + Social Icons in one line */}
             <div className="mt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
               <Button text="Unlock My CV" href={resume} />

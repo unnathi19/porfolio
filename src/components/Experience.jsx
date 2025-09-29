@@ -7,20 +7,33 @@ const experienceData = [
     project: "RMC Portal",
     description: "Developed backend APIs handling authentication, cart, and order management.",
     tools: ["Node.js", "MongoDB", "JWT"],
-    date: "Jan 2022 - Apr 2022",
+    date: "Currently Working",
+  },
+  {
+    project: "TPS Portal",
+    description: "Developed backend APIs handling authentication, cart, and order management.",
+    tools: ["Node.js", "MongoDB", "JWT"],
+    date: "Currently Working",
+  },
+  {
+    project: "Meeting Manager",
+    description: "Full-stack task management app with Node.js backend and MySQL integration.",
+    tools: ["Node.js", "Express", "MySQL"],
+    date: "July 2025 - September 2022",
   },
   {
     project: "JCH",
     description: "Managed multiple components and backend services for JCH project.",
     tools: ["Node.js", "Express", "MySQL"],
-    date: "May 2022 - Aug 2022",
+    date: "Aug 2023 - July 2025",
   },
   {
-    project: "Task Manager",
-    description: "Full-stack task management app with Node.js backend and MySQL integration.",
+    project: "Asset Management System",
+    description: "Managed multiaple components and backend services for ASM project.",
     tools: ["Node.js", "Express", "MySQL"],
-    date: "Sep 2022 - Dec 2022",
+    date: "November 2022 - Aug 2023",
   },
+  
 ];
 
 export default function Experience() {
