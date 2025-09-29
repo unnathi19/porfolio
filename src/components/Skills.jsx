@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 const skills = [
-  { name: "React", level: "Advanced", tools: ["Redux", "Router", "Tailwind"], color: "from-blue-400 to-blue-600", icon: "⚛️" },
   { name: "Node.js", level: "Advanced", tools: ["Express", "Socket.IO", "JWT"], color: "from-green-400 to-green-600", icon: "🟢" },
-  { name: "MySQL", level: "Intermediate", tools: ["Sequelize", "Queries", "Optimization"], color: "from-indigo-400 to-indigo-600", icon: "🗄️" },
-  { name: "MongoDB", level: "Intermediate", tools: ["Mongoose", "Aggregation", "Indexes"], color: "from-green-300 to-green-500", icon: "🍃" },
   { name: "JavaScript", level: "Advanced", tools: ["ES6+", "Async/Await", "DOM Manipulation"], color: "from-yellow-400 to-yellow-500", icon: "📜" },
-  { name: "Docker", level: "Beginner", tools: ["Containers", "Docker Compose"], color: "from-blue-300 to-blue-500", icon: "🐳" },
+  { name: "MySQL", level: "Advanced", tools: ["Sequelize", "Queries", "Optimization"], color: "from-indigo-400 to-indigo-600", icon: "🗄️" },
+  { name: "MongoDB", level: "Intermediate", tools: ["Mongoose", "Aggregation", "Indexes"], color: "from-green-300 to-green-500", icon: "🍃" },
+  // { name: "Docker", level: "Beginner", tools: ["Containers", "Docker Compose"], color: "from-blue-300 to-blue-500", icon: "🐳" },
   { name: "Git", level: "Advanced", tools: ["GitHub", "Branching", "Merging"], color: "from-red-400 to-red-600", icon: "🔧" },
   { name: "REST API", level: "Advanced", tools: ["Express", "Postman", "JWT"], color: "from-purple-400 to-purple-600", icon: "🌐" },
+  { name: "React", level: "Intermediate", tools: [ "Router", "Tailwind"], color: "from-blue-400 to-blue-600", icon: "⚛️" },
 ];
 
 export default function Skills() {
