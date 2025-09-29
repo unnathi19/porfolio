@@ -100,7 +100,7 @@ export default function Experience() {
       </div>
 
       {/* === Foreground Content === */}
-      <h2 className="text-3xl font-bold text-center mb-12 relative z-10">My Experience</h2>
+      <h2 className="text-3xl font-bold text-red-600 text-center mb-12 relative z-10">My Experience</h2>
 
       <div className="relative max-w-5xl mx-auto z-10">
         {/* Timeline vertical line */}
@@ -151,7 +151,11 @@ export default function Experience() {
           })}
         </div>
       </div>
-
+<div className="text-center mt-20">
+        <p className="text-gray-500">
+          &copy; {new Date().getFullYear()} Unnathi H M — Crafted with ❤️
+        </p>
+      </div>
       {/* Scroll-Up Button */}
      {showScrollUp && (
   <button
